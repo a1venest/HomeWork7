@@ -11,18 +11,18 @@ int GetNumberFromConsole(string text)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-double GetNumberFromConsoleTwo(string text)
+int GetNumberFromConsoleTwo(string text)
 {
     Console.WriteLine(text);
-    return Convert.ToDouble(Console.ReadLine());
+    return Convert.ToInt32(Console.ReadLine());
 }
 
-double GetNumberValue(double minValue, double maxValue)
+double GetNumberValue(int minValue, int maxValue)
 {
-    return new Random().NextDouble() * (maxValue - minValue);
+    return Convert.ToDouble(new Random().Next(minValue, maxValue + 1) / 10.0);
 }
 
-void FillArray(double[,] arr, double minValue, double maxValue)
+void FillArray(double[,] arr, int minValue, int maxValue)
 {
     for (int i = 0; i < arr.GetLength(0); i++)
     {
@@ -53,7 +53,7 @@ double[,] InitializateArray(int m, int n)
 int m = GetNumberFromConsole("Введите размерность массива: m");
 int n = GetNumberFromConsole("Введите размерность массива: n");
 double[,] array = InitializateArray(m, n);
-double maxValue = GetNumberFromConsoleTwo("Введите максимальное допустимое число в массиве:");
-double minValue = GetNumberFromConsoleTwo("Введите минимальное допустимое число в массиве:");
+int maxValue = GetNumberFromConsoleTwo("Введите максимальное допустимое число в массиве:");
+int minValue = GetNumberFromConsoleTwo("Введите минимальное допустимое число в массиве:");
 FillArray(array, minValue, maxValue);
 PrintArray(array);
